@@ -1,12 +1,22 @@
 import { Request, Response, RequestHandler, NextFunction } from "express";
+import { tokenChecker } from "../tools/authorization.tools";
 
-export const testLogger: RequestHandler = async (
+export const checkAuthorizationToken: RequestHandler = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    console.log("test middleware");
+    if (
+      !req.headers.authorization ||
+      !tokenChecker(req.headers.authorization)
+    ) {
+      return res.status(401).json({
+        status: false,
+        message: "athorization failed",
+        data: {},
+      });
+    }
     next();
   } catch (error: any) {
     console.log("[-] unhandled error > " + error.message);

@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "neshan.org",
+      "baseURL": "https://api.neshan.org/",
+      "headerOfToken": "Api-Key",
+      "test-url": "https://api.neshan.org/v4/reverse?lat=35.715298&lng=51.404343"
+    },
+    {
+      "id": 2,
+      "name": "map.ir",
+      "baseURL": "https://map.ir/",
+      "headerOfToken": "x-api-key",
+      "test-url": "https://map.ir/reverse?lat=35.7006311416626&lon=51.3361930847168"
+    }
+  ]
+}

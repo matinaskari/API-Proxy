@@ -5,9 +5,18 @@ export const testController: RequestHandler = async (
   res: Response
 ) => {
   try {
-    console.log(req.body);
+    console.log("1 --->", req.baseUrl);
+    console.log("2 --->", req.url);
+    console.log(req.originalUrl);
+
     return res.status(200).json({ ok: true });
-  } catch (error) {
-    return res.status(400).json({ ok: false });
+  } catch (error: any) {
+    console.log("[-] unhandled error > " + error.message);
+
+    return res.status(500).json({
+      status: false,
+      message: "something went wrong",
+      data: {},
+    });
   }
 };
