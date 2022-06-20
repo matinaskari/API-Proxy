@@ -15,7 +15,7 @@ export const setSecret: RequestHandler = async (
 
     return res.status(200).json({
       status: true,
-      message: "true",
+      message: `add secret for service ${req.body.service_name} succesfull`,
       data: {},
     });
   } catch (error: any) {

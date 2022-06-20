@@ -16,11 +16,12 @@ export const createProxy: RequestHandler = async (
     );
     const originalUrl = req.originalUrl;
     const neededAdderes = originalUrl.replace(currentUser?.pathPrefix, "");
-
+    // init type for header
     interface Header {
       [key: string]: any;
     }
 
+    // init type for axios config
     type configType = {
       method: string;
       url: string;
@@ -42,9 +43,7 @@ export const createProxy: RequestHandler = async (
     }
     config.params = req.query;
 
-    console.log(config);
-
-    let response = await axios(config);
+    const response = await axios(config);
 
     return res.status(200).json({
       status: true,
