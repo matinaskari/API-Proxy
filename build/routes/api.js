@@ -1,12 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
-var test_middleware_1 = require("../middleware/test.middleware");
-var test_controller_1 = require("../controllers/test.controller");
-var user_routes_1 = require("../routes/user.routes");
-var sms_routes_1 = require("../routes/sms.routes");
+var proxy_routes_1 = require("../routes/proxy.routes");
 var router = (0, express_1.Router)();
-router.post("/test", test_middleware_1.testLogger, test_controller_1.testController);
-router.use("/user", user_routes_1.router);
-router.use("/sms", sms_routes_1.router);
+router.use("/proxy", proxy_routes_1.router);
 exports.default = router;

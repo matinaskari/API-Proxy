@@ -43,13 +43,24 @@ export const createProxy: RequestHandler = async (
     }
     config.params = req.query;
 
-    const response = await axios(config);
+    try {
+      const response = await axios(config);
 
-    return res.status(200).json({
-      status: true,
-      message: "done",
-      data: response.data,
-    });
+      return res.status(200).json({
+        status: true,
+        message: "done",
+        data: response.data,
+      });
+    } catch (error: any) {
+      // handle axios error
+      console.log("[-] Axios error >" + error.message);
+
+      return res.status(error.response.data.code).json({
+        status: false,
+        message: error.response.data.message,
+        data: {},
+      });
+    }
   } catch (error: any) {
     console.log("[-] unhandled error > " + error.message);
 
