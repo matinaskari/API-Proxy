@@ -1,9 +1,10 @@
 import { Router } from "express";
-
-import { sendSMS } from "../controllers/sms.controller";
-
+import { checkAuthorizationToken } from "../middleware/authorization.middleware";
+import { createProxy } from "../controllers/createProxy.controller";
+import { setSecret } from "../controllers/setSecret.controller";
+import { secretValidator } from "../middleware/secret.validator";
 export const router = Router();
 
-router.get("/s1", sendSMS);
+router.get("/c/:a?/:b?/:c?", checkAuthorizationToken, createProxy);
 
-router.get("/s2", sendSMS);
+router.post("/set-secret", secretValidator, setSecret);

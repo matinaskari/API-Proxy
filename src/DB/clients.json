@@ -5,16 +5,16 @@
       "token": "9SnqZc5zIsMWgbESgz0t",
       "headerOfToken": "Api-Key",
       "name": "Ali",
-      "service": "neshan.org",
-      "pathPrefix": "/api/proxy"
+      "service": "neshan_org",
+      "pathPrefix": "/api/proxy/c"
     },
     {
       "id": 2,
       "token": "qYaDsybZcGoQGRFDXN7s",
       "headerOfToken": "x-api-key",
       "name": "Ahmad",
-      "service": "map.ir",
-      "pathPrefix": "/api/proxy"
+      "service": "map_ir",
+      "pathPrefix": "/api/proxy/c"
     }
   ]
 }
